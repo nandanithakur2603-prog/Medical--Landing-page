@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCore Health - Advanced Medical Organization Platform</title>
+    <!-- Tailwind CSS for Modern Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- TOP EMERGENCY BAR -->
+    <div class="bg-rose-600 text-white text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-1 font-semibold"><i class="fa-solid fa-phone-volume animate-pulse"></i> Emergency: 108 / 911[cite: 1]</span>
+                <span class="hidden md:inline">|</span>
+                <span class="hidden md:flex items-center gap-1"><i class="fa-solid fa-hospital"></i> ER Wait Time: <span class="bg-rose-700 px-2 py-0.5 rounded text-xs">12 Mins (Live)[cite: 1]</span></span>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="alert('Ambulance requested to your current location!')" class="bg-white text-rose-600 font-bold px-3 py-1 rounded text-xs hover:bg-rose-50 transition shadow">
+                    <i class="fa-solid fa-truck-medical"></i> Request Ambulance[cite: 1]
+                </button>
+                <button onclick="alert('Checking Blood Bank stock levels...')" class="bg-rose-700 hover:bg-rose-800 px-3 py-1 rounded text-xs transition">
+                    <i class="fa-solid fa-droplet"></i> Blood Bank Info[cite: 1]
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-teal-600 text-white p-2 rounded-lg font-bold text-xl"><i class="fa-solid fa-heart-pulse"></i></div>
+                <span class="text-xl font-extrabold tracking-tight text-slate-900">Medi<span class="text-teal-600">Core</span></span>
+            </div>
+            <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600">
+                <a href="#features" class="hover:text-teal-600 transition">Features</a>
+                <a href="#portals" class="hover:text-teal-600 transition">Portals</a>
+                <a href="#ai-assistant" class="hover:text-teal-600 transition">AI Assistant</a>
+                <a href="#architecture" class="hover:text-teal-600 transition">Project Architecture</a>
+                <a href="#security" class="hover:text-teal-600 transition">Security</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="openBookingModal()" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition">
+                    <i class="fa-regular fa-calendar-check mr-1"></i> Book Appointment[cite: 1]
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-b from-teal-50/50 to-slate-50">
+        <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-semibold bg-teal-100 text-teal-800 mb-6">
+                    <i class="fa-solid fa-circle-check"></i> Next-Gen Healthcare Platform
+                </span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                    Advanced Healthcare Management, <span class="text-teal-600">Right at Your Fingertips.</span>
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    Experience comprehensive digital care with real-time slot bookings, secure doctor portals, instant teleconsultations, 24/7 AI health routing, and robust emergency response systems[cite: 1, 2].
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#features" class="bg-teal-600 hover:bg-teal-700 text-white font-medium px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2">
+                        Explore All Features <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="#ai-assistant" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-medium px-6 py-3 rounded-xl transition flex items-center gap-2">
+                        <i class="fa-solid fa-robot text-teal-600"></i> Try AI Assistant[cite: 2]
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 relative z-10">
+                    <div class="flex justify-between items-center mb-4 border-b pb-3">
+                        <h3 class="font-bold text-slate-800"><i class="fa-solid fa-gauge-high text-teal-600 mr-2"></i> Patient Quick Hub</h3>
+                        <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-medium">System Online</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-teal-100 text-teal-700 p-2.5 rounded-lg"><i class="fa-solid fa-calendar-days"></i></div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">Online Appointment Booking</p>
+                                    <p class="text-xs text-slate-500">Live slot tracking & WhatsApp sync[cite: 1]</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-teal-600">Active</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-indigo-100 text-indigo-700 p-2.5 rounded-lg"><i class="fa-solid fa-video"></i></div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">Teleconsultation / Video OPD</p>
+                                    <p class="text-xs text-slate-500">Secure remote doctor connection[cite: 1]</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-indigo-600">Ready</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-amber-100 text-amber-700 p-2.5 rounded-lg"><i class="fa-solid fa-file-medical"></i></div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">Digital Rx & Reports</p>
+                                    <p class="text-xs text-slate-500">Downloadable prescriptions & files[cite: 1]</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-amber-600">Secure</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -top-10 -right-10 w-72 h-72 bg-teal-200/50 rounded-full blur-3xl -z-0"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 1 & 2: PATIENT & DOCTOR FEATURES -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Comprehensive Feature Modules</h2>
+                <p class="text-slate-600">Built precisely around patient workflows, doctor management tools, and complete administrative control[cite: 1, 2].</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Patient Card -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-hospital-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Patient-Facing Tools</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><i class="fa-solid fa-check text-teal-600 mr-2"></i> Online appointment booking with live slots[cite: 1]</li>
+                        <li><i class="fa-solid fa-check text-teal-600 mr-2"></i> Easy rescheduling & cancellation options[cite: 1]</li>
+                        <li><i class="fa-solid fa-check text-teal-600 mr-2"></i> Teleconsultation & WhatsApp booking[cite: 1]</li>
+                        <li><i class="fa-solid fa-check text-teal-600 mr-2"></i> Digital prescription access & medical reports[cite: 1]</li>
+                        <li><i class="fa-solid fa-check text-teal-600 mr-2"></i> Medication reminder alerts & health package booking[cite: 1]</li>
+                    </ul>
+                </div>
+
+                <!-- Doctor Card -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Dedicated Doctor Portal</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><i class="fa-solid fa-check text-indigo-600 mr-2"></i> Dedicated practitioner login portal[cite: 1]</li>
+                        <li><i class="fa-solid fa-check text-indigo-600 mr-2"></i> View today's appointment queue and history[cite: 1, 2]</li>
+                        <li><i class="fa-solid fa-check text-indigo-600 mr-2"></i> Flexible doctor availability calendar management[cite: 1, 2]</li>
+                        <li><i class="fa-solid fa-check text-indigo-600 mr-2"></i> Upload prescriptions, lab reports, and chat securely[cite: 1, 2]</li>
+                    </ul>
+                </div>
+
+                <!-- Emergency Card -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-truck-medical"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Emergency Response System</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><i class="fa-solid fa-check text-rose-600 mr-2"></i> One-click emergency contact & hotline numbers[cite: 1]</li>
+                        <li><i class="fa-solid fa-check text-rose-600 mr-2"></i> Instant ambulance request tracker[cite: 1]</li>
+                        <li><i class="fa-solid fa-check text-rose-600 mr-2"></i> Nearest ER department status and wait times[cite: 1]</li>
+                        <li><i class="fa-solid fa-check text-rose-600 mr-2"></i> Blood bank details and first-aid guidance[cite: 1]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: AI HEALTH ASSISTANT -->
+    <section id="ai-assistant" class="py-20 bg-teal-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="bg-teal-800 text-teal-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Smart Integration</span>
+                <h2 class="text-3xl font-extrabold mt-4 mb-6">AI Health Assistant & Navigation</h2>
+                <p class="text-teal-100 mb-6 leading-relaxed">
+                    Empower your platform with an intelligent assistant built to help patients navigate the website, route symptoms to appropriate medical departments, and manage booking inquiries seamlessly[cite: 2].
+                </p>
+                <div class="bg-teal-800/60 border border-teal-700 p-4 rounded-xl text-xs text-teal-200 flex items-start gap-3">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base mt-0.5"></i>
+                    <p><strong>Important Disclaimer:</strong> Clear notice is maintained stating that the AI assistant is an information guide only and is not a replacement for professional medical diagnoses or doctor consultations[cite: 2].</p>
+                </div>
+            </div>
+            
+            <div class="bg-white text-slate-800 p-6 rounded-2xl shadow-xl">
+                <div class="flex items-center gap-3 border-b pb-3 mb-4">
+                    <div class="bg-teal-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">AI</div>
+                    <div>
+                        <p class="text-sm font-bold">MediCore Virtual Assistant</p>
+                        <p class="text-xs text-emerald-600">● Online & Ready to Assist</p>
+                    </div>
+                </div>
+                <div class="space-y-3 mb-4 text-sm">
+                    <div class="bg-slate-100 p-3 rounded-lg max-w-[80%]">
+                        Hello! I can guide you to the right department or help book your appointment. How can I help today?
+                    </div>
+                    <div class="bg-teal-600 text-white p-3 rounded-lg max-w-[80%] ml-auto">
+                        I have persistent chest discomfort. Which specialist should I see?
+                    </div>
+                    <div class="bg-slate-100 p-3 rounded-lg max-w-[80%]">
+                        Based on your query, I recommend consulting our <strong>Cardiology Department</strong>. Would you like me to find available slots or book an appointment with Dr. Sharma[cite: 1, 2]?
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <input type="text" placeholder="Type a health or navigation question..." class="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-teal-600" disabled>
+                    <button class="bg-teal-600 text-white px-4 py-2 rounded-lg text-sm"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 & 7: ADMIN DASHBOARD & SECURITY -->
+    <section id="portals" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Admin Analytics & Robust Security</h2>
+                <p class="text-slate-600">Complete enterprise control backed by deep statistical reports and secure role-based access architectures[cite: 1, 2].</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Admin Dashboard Improvements -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-blue-100 text-blue-600 p-3 rounded-xl"><i class="fa-solid fa-chart-pie text-xl"></i></div>
+                        <h3 class="text-xl font-bold text-slate-900">Admin Analytics Dashboard</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-700">
+                        <li class="flex items-center justify-between border-b pb-2"><span>Appointment volume analytics & trends</span> <i class="fa-solid fa-check text-teal-600"></i></li>
+                        <li class="flex items-center justify-between border-b pb-2"><span>Patient registration & department statistics</span> <i class="fa-solid fa-check text-teal-600"></i></li>
+                        <li class="flex items-center justify-between border-b pb-2"><span>Revenue tracking & payment settlement reports</span> <i class="fa-solid fa-check text-teal-600"></i></li>
+                        <li class="flex items-center justify-between border-b pb-2"><span>Feedback ratings & website traffic analytics</span> <i class="fa-solid fa-check text-teal-600"></i></li>
+                        <li class="flex items-center justify-between"><span>One-click Excel & PDF data report exports</span> <i class="fa-solid fa-check text-teal-600"></i></li>
+                    </ul>
+                </div>
+
+                <!-- Security & Privacy -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200" id="security">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-purple-100 text-purple-600 p-3 rounded-xl"><i class="fa-solid fa-shield-halved text-xl"></i></div>
+                        <h3 class="text-xl font-bold text-slate-900">Security & Privacy Governance</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-700">
+                        <li class="flex items-center justify-between border-b pb-2"><span>Role-Based Access Control (RBAC)</span> <i class="fa-solid fa-check text-teal-600"></i></li>
+                        <li class="flex items-center justify-between border-b pb-2"><span>Advanced Data Encryption & Session Timeouts</span> <i class="fa-solid fa-check text-teal-600"></i></li>
+                        <li class="flex items-center justify-between border-b pb-2"><span>Automated Login Alerts & Audit Logs</span> <i class="fa-solid fa-check text-teal-600"></i></li>
+                        <li class="flex items-center justify-between border-b pb-2"><span>Backup, Recovery & Privacy Compliance</span> <i class="fa-solid fa-check text-teal-600"></i></li>
+                        <li class="flex items-center justify-between"><span>Consent Management framework</span> <i class="fa-solid fa-check text-teal-600"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: COLLEGE PROJECT ARCHITECTURE MATRIX -->
+    <section id="architecture" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-teal-600 bg-teal-50 px-3 py-1 rounded-full">Academic Blueprint</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-3 mb-4">College Project Feature Module Mapping</h2>
+                <p class="text-slate-600">Structured layout for presentation, modular implementation, and overall system workflow.</p>
+            </div>
+
+            <!-- Workflow Visualizer -->
+            <div class="bg-slate-900 text-slate-200 p-4 rounded-xl text-center font-mono text-xs md:text-sm mb-10 overflow-x-auto shadow-inner">
+                Public Website &rarr; Patient Portal &rarr; Doctor Portal &rarr; Admin Dashboard &rarr; Emergency System[cite: 3]
+            </div>
+
+            <!-- Matrix Table -->
+            <div class="overflow-x-auto border border-slate-200 rounded-xl shadow-sm">
+                <table class="w-full text-left border-collapse bg-white text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 uppercase font-bold text-xs tracking-wider border-b border-slate-200">
+                            <th class="p-4">Feature Module</th>
+                            <th class="p-4">Assigned Module / User Role</th>
+                            <th class="p-4">Core Functionality Summary</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-600">
+                        <tr>
+                            <td class="p-4 font-semibold text-slate-900">Online Appointment Booking[cite: 3]</td>
+                            <td class="p-4"><span class="bg-teal-100 text-teal-800 px-2.5 py-1 rounded text-xs font-semibold">Patient[cite: 3]</span></td>
+                            <td class="p-4">Real-time scheduling with available doctor time slots[cite: 1]</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-slate-900">Doctor Portal[cite: 3]</td>
+                            <td class="p-4"><span class="bg-indigo-100 text-indigo-800 px-2.5 py-1 rounded text-xs font-semibold">Doctor[cite: 3]</span></td>
+                            <td class="p-4">Manage queues, availability calendar, and patient history[cite: 2]</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-slate-900">Teleconsultation[cite: 3]</td>
+                            <td class="p-4"><span class="bg-sky-100 text-sky-800 px-2.5 py-1 rounded text-xs font-semibold">Patient / Doctor[cite: 3]</span></td>
+                            <td class="p-4">Secure online video sessions and remote consultations[cite: 1, 2]</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-slate-900">AI Health Assistant[cite: 3]</td>
+                            <td class="p-4"><span class="bg-amber-100 text-amber-800 px-2.5 py-1 rounded text-xs font-semibold">AI System[cite: 3]</span></td>
+                            <td class="p-4">Symptom routing, department guidance, and navigation assistance[cite: 2]</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-slate-900">Ambulance Request[cite: 3]</td>
+                            <td class="p-4"><span class="bg-rose-100 text-rose-800 px-2.5 py-1 rounded text-xs font-semibold">Emergency[cite: 3]</span></td>
+                            <td class="p-4">One-click emergency response and live ER tracking[cite: 1]</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-slate-900">Digital Prescription[cite: 3]</td>
+                            <td class="p-4"><span class="bg-teal-100 text-teal-800 px-2.5 py-1 rounded text-xs font-semibold">Patient[cite: 3]</span></td>
+                            <td class="p-4">Downloadable medication prescriptions and diagnostic reports[cite: 1]</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-slate-900">Analytics Dashboard[cite: 3]</td>
+                            <td class="p-4"><span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded text-xs font-semibold">Admin[cite: 3]</span></td>
+                            <td class="p-4">Revenue statistics, appointment tracking, and report exports[cite: 1, 2]</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold text-slate-900">Role-Based Security[cite: 3]</td>
+                            <td class="p-4"><span class="bg-purple-100 text-purple-800 px-2.5 py-1 rounded text-xs font-semibold">System[cite: 3]</span></td>
+                            <td class="p-4">Encrypted access controls, session management, and audit trails[cite: 2]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="bg-teal-600 text-white p-1.5 rounded-lg font-bold"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <span class="text-lg font-bold text-white">MediCore Health</span>
+                </div>
+                <p class="text-sm">Advanced healthcare organization website template built to support modern digital care and robust administrative workflows[cite: 1, 2].</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-3">Quick Navigation</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#features" class="hover:text-white transition">Features</a></li>
+                    <li><a href="#portals" class="hover:text-white transition">Portals</a></li>
+                    <li><a href="#ai-assistant" class="hover:text-white transition">AI Assistant</a></li>
+                    <li><a href="#architecture" class="hover:text-white transition">Project Structure</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-3">Legal & Privacy</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy[cite: 2]</a></li>
+                    <li><a href="#" class="hover:text-white transition">Consent Management[cite: 2]</a></li>
+                    <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-3">Emergency Line</h4>
+                <p class="text-sm mb-2">Available 24 hours a day, 7 days a week for immediate medical dispatch and care.</p>
+                <p class="text-rose-400 font-bold text-lg"><i class="fa-solid fa-phone mr-1"></i> 108 / 911[cite: 1]</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; 2026 MediCore Health Organization. All rights reserved. Built for College Project & Production Implementation.
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE MODAL PLACEHOLDER -->
+    <div id="bookingModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Book an Appointment[cite: 1]</h3>
+            <p class="text-sm text-slate-500 mb-4">Select your preferred date, time slot, and medical department.</p>
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Full Name</label>
+                    <input type="text" class="w-full border border-slate-200 rounded-lg p-2.5 text-sm" placeholder="Enter patient name">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Select Department</label>
+                    <select class="w-full border border-slate-200 rounded-lg p-2.5 text-sm">
+                        <option>Cardiology</option>
+                        <option>General Medicine</option>
+                        <option>Pediatrics</option>
+                        <option>Orthopedics</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Preferred Time Slot[cite: 1]</label>
+                    <input type="datetime-local" class="w-full border border-slate-200 rounded-lg p-2.5 text-sm">
+                </div>
+                <button onclick="alert('Appointment successfully booked! Confirmation sent via WhatsApp/SMS.'); closeBookingModal();" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-medium py-2.5 rounded-lg text-sm transition mt-2">
+                    Confirm Booking[cite: 1]
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.getElementById('bookingModal').classList.add('flex');
+        }
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('flex');
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
